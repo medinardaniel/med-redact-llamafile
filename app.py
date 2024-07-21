@@ -79,7 +79,7 @@ HTML_TEMPLATE = """
     <div class="container">
         <h1>Medical Note Redaction Service</h1>
         <form id="redactForm" class="form-container">
-            <textarea id="text" name="text" rows="10" 
+            <textarea id="text" name="text" rows="10"
             placeholder="Enter medical note here...">
             </textarea><br>
             <button type="button" onclick="submitForm()">
