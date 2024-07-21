@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Note Redaction Service</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            padding-top: 20px; /* Adjust this value to move content up or down */
+        }
+        .container {
+            text-align: center;
+            width: 80%;
+        }
+        textarea {
+            width: 100%;
+            max-width: 500px;
+        }
+        #output {
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+        h1 {
+            font-family: 'Times New Roman', serif; /* Change the font of the title */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Medical Note Redaction Service</h1>
+        <form id="redactionForm">
+            <textarea name="text" rows="10" cols="30" placeholder="Enter medical note here..."></textarea><br>
+            <input type="submit" value="Redact">
+        </form>
+        <div id="output"></div>
+    </div>
+    <script>
+        document.getElementById('redactionForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const text = event.target.elements['text'].value;
+            const response = await fetch('/redact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            });
+            const result = await response.json();
+            document.getElementById('output').textContent = result.redacted_text;
+        });
+    </script>
+</body>
+</html>
