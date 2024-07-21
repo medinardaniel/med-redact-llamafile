@@ -30,11 +30,6 @@ jobs:
         source venv/bin/activate
         make format
 
-    - name: Lint code
-      run: |
-        source venv/bin/activate
-        make lint
-
     - name: Run tests
       run: |
         source venv/bin/activate

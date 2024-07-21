@@ -9,7 +9,7 @@
 The purpose of the Mediacal Note Redaction Service is to provide a system that redacts PHI (Protected Health Information) from given medical notes. This ensures that sensitive patient information is not exposed when sharing medical documents. The system replaces all PHI information with the word `<REDACTED>`.
 
 ## Architecture Diagram
-![Architecture Diagram](path/to/architecture-diagram.png)
+![Architecture Diagram](arch-diagram.png)
 
 ## Instructions for Setup, Running, and Testing the App
 
