@@ -17,7 +17,7 @@ The purpose of the Mediacal Note Redaction Service is to provide a system that r
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/medinardaniel/med-redact-llamafile.git
    cd your-repo
 
 2. **Set Up Virtual Environment**
@@ -28,14 +28,16 @@ source env/bin/activate
 make install
 
 ### Running the App
+1. **Download Mistral-7B-Instruct Llamafile**
+https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file
 
-1. **Build Docker Image**
-docker build -t llamafile-backend llamafile-backend
+2. **Build Docker Image**
+docker build -t med-redact-llamafile .
 
-2. **Run Docker Container**
-docker run -d -p 5000:5000 llamafile-backend
+3. **Run Docker Container**
+docker run -p 5001:5001 -e OPENAI_API_URL=http://host.docker.internal:8080/v1 -e OPENAI_API_KEY=sk-no-key-required med-redact-llamafile
 
-3. **Access the App**
+4. **Access the App**
 Open your browser and go to http://localhost:5000
 
 ### Testing the App

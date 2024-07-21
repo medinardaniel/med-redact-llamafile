@@ -10,7 +10,8 @@ HTML_TEMPLATE = """
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
     <title>Simple Frontend</title>
     <style>
         body {
@@ -78,8 +79,12 @@ HTML_TEMPLATE = """
     <div class="container">
         <h1>Medical Note Redaction Service</h1>
         <form id="redactForm" class="form-container">
-            <textarea id="text" name="text" rows="10" placeholder="Enter medical note here..."></textarea><br>
-            <button type="button" onclick="submitForm()">Redact</button>
+            <textarea id="text" name="text" rows="10" 
+            placeholder="Enter medical note here...">
+            </textarea><br>
+            <button type="button" onclick="submitForm()">
+            Redact
+            </button>
         </form>
         <h2>Redacted Note:</h2>
         <pre id="redactedText"></pre>
@@ -97,9 +102,11 @@ HTML_TEMPLATE = """
             });
             if (response.ok) {
                 const data = await response.json();
-                document.getElementById('redactedText').textContent = data.redacted_text;
+                document.getElementById('redactedText')
+                .textContent = data.redacted_text;
             } else {
-                document.getElementById('redactedText').textContent = 'An error occurred during redaction.';
+                document.getElementById('redactedText')
+                .textContent = 'An error occurred during redaction.';
             }
         }
     </script>

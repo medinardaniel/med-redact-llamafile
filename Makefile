@@ -1,34 +1,30 @@
-# Define variables
-DOCKER_IMAGE_NAME=llamafile-backend
-SOURCE_DIR=llamafile-backend
-TEST_DIR=llamafile-backend
+# Makefile for the Medical Note Redaction Service
 
-# Define commands
-PYTHON_FORMATTER=black
-LINTER=flake8
-TEST_RUNNER=pytest
+# Variables
+VENV_DIR=venv
+PYTHON=$(VENV_DIR)/bin/python
+PIP=$(VENV_DIR)/bin/pip
 
-# Install dependencies
-install:
-	pip install -r $(SOURCE_DIR)/requirements.txt
+# Commands
+INSTALL_CMD=$(PIP) install -r requirements.txt
+FORMAT_CMD=$(PYTHON) -m black .
+LINT_CMD=$(PYTHON) -m flake8
+TEST_CMD=$(PYTHON) -m pytest
 
-# Format code using black
+# Targets
+.PHONY: install format lint test
+
+install: $(VENV_DIR)
+	$(INSTALL_CMD)
+
 format:
-	$(PYTHON_FORMATTER) $(SOURCE_DIR)
+	$(FORMAT_CMD)
 
-# Lint code using flake8
 lint:
-	$(LINTER) $(SOURCE_DIR)
+	$(LINT_CMD)
 
-# Run tests using pytest
 test:
-	$(TEST_RUNNER) $(TEST_DIR)
+	$(TEST_CMD)
 
-# Build Docker image
-build:
-	docker build -t $(DOCKER_IMAGE_NAME) $(SOURCE_DIR)
-
-# Run all steps: format, lint, test, and build
-all: format lint test build
-
-.PHONY: format lint test docker-build all
+$(VENV_DIR):
+	python3 -m venv $(VENV_DIR)
