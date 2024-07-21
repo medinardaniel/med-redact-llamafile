@@ -33,12 +33,14 @@ https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file
 
 2. **Build Docker Image**
 docker build -t med-redact-llamafile .
+![Docker Build](docker-build.png)
 
 3. **Run Docker Container**
 docker run -p 5001:5001 -e OPENAI_API_URL=http://host.docker.internal:8080/v1 -e OPENAI_API_KEY=sk-no-key-required med-redact-llamafile
+![Docker Run](docker-run.png)
 
 4. **Access the App**
-Open your browser and go to http://localhost:5000
+Open your browser and go to http://localhost:5001
 
 ### Testing the App
 
