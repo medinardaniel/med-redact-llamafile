@@ -8,7 +8,7 @@
 [Watch the Final Demo Video](https://your-final-demo-video-link.com)
 
 ## Project Purpose
-The purpose of the Mediacal Note Redaction Service is to provide a system that redacts PHI (Protected Health Information) from given medical notes. This ensures that sensitive patient information is not exposed when sharing medical documents. The system replaces all PHI information with the word `<REDACTED>`.
+The purpose of the Medical Note Redaction Service is to provide a system that redacts PHI (Protected Health Information) from given medical notes. This ensures that sensitive patient information is not exposed when sharing medical documents. The system replaces all PHI information with the word `<REDACTED>`. Running the Docker container and the Llamafile locally allows the user to use the system safely, without sending data that contains PHI to a cloud service.
 
 ## Architecture Diagram
 ![Architecture Diagram](arch-diagram.png)
@@ -68,3 +68,21 @@ curl -X POST http://localhost:5000/redact -H "Content-Type: application/json" -d
 {
     "redacted_text": "Hi my name is <REDACTED> and I really need my medication shipped to <REDACTED>. You can also reach me at <REDACTED> or at <REDACTED>."
 }
+
+
+## Evaluation
+
+### Evaluation Results
+
+- **Average BLEU score**: 0.890 (89.0%)
+
+- **Median BLEU score**: 0.938 (93.8%)
+
+- **Minimum BLEU score**: 0.618 (61.8%)
+
+- **Maximum BLEU score**: 1.0 (100%)
+
+The high average BLEU score indicates that the predicted notes are highly similar to the true notes, demonstrating the effectiveness of the redaction service in preserving the context and structure of the original medical notes while removing PHI. The median BLEU score, being close to the maximum, further confirms the consistency of the redaction quality across different notes.
+
+The range of BLEU scores from 0.618 to 1.0 highlights that while most notes are accurately redacted, there are some variations that may need further refinement. Overall, these results signify that the Medical Note Redaction Service performs well in its intended task, ensuring the privacy of sensitive patient information.
+
