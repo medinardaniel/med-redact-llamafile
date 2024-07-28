@@ -98,7 +98,9 @@ def calculate_bleu_scores(true_notes, predicted_notes):
 bleu_scores = calculate_bleu_scores(true_notes, predicted_notes)
 
 average_bleu_score = sum(bleu_scores) / len(bleu_scores)
-median_bleu_score = sorted(bleu_scores)[len(bleu_scores) // 2]
+sorted_scores = sorted(bleu_scores)
+median_index = len(sorted_scores) // 2
+median_bleu_score = sorted_scores[median_index]
 min_bleu_score = min(bleu_scores)
 max_bleu_score = max(bleu_scores)
 
