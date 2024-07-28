@@ -80,16 +80,16 @@ def preprocess_text(text):
 
 
 def calculate_bleu_scores(true_notes, predicted_notes):
-    true_notes_preprocessed = [
-        preprocess_text(note) for note in true_notes
+    true_preprocessed = [
+        preprocess_text(n) for n in true_notes
     ]
-    predicted_notes_preprocessed = [
+    pred_preprocessed = [
         preprocess_text(note) for note in predicted_notes
     ]
 
     bleu_scores = [
         sentence_bleu([t.split()], p.split())
-        for t, p in zip(true_notes_preprocessed, predicted_notes_preprocessed)
+        for t, p in zip(true_preprocessed, pred_preprocessed)
     ]
 
     return bleu_scores
