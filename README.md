@@ -5,13 +5,16 @@
 ![App Example](app-example.png)
 
 ## Video Demo
-[Watch the Final Demo Video](https://your-final-demo-video-link.com)
+[Watch the Final Demo Video](https://youtu.be/UDq5WNwoqXc)
 
 ## Project Purpose
 The purpose of the Medical Note Redaction Service is to provide a system that redacts PHI (Protected Health Information) from given medical notes. This ensures that sensitive patient information is not exposed when sharing medical documents. The system replaces all PHI information with the word `<REDACTED>`. Running the Docker container and the Llamafile locally allows the user to use the system safely, without sending data that contains PHI to a cloud service.
 
 ## Architecture Diagram
 ![Architecture Diagram](arch-diagram.png)
+
+### Model Selection
+Mistral-7B-Instruct was selected as the language model for this app due to its superior performance in understanding and generating human-like text. This model excels at handling complex instructions and producing accurate, contextually appropriate outputs, which is crucial for redacting sensitive information in medical notes. Additionally, its relatively smaller size compared to other models allows for efficient deployment without sacrificing the quality of text generation, making it an ideal choice for this application.
 
 ## Instructions for Setup, Running, and Testing the App
 
